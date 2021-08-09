@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="center" xmlns="http://javafx.com/javafx/16"
+      fx:controller="Youtube_DLG.RootController">
+    <AnchorPane xmlns:fx="http://javafx.com/fxml/1" styleClass="menu-bar">
+        <MenuBar>
+            <Menu text="File" style="-fx-font-size:15px; -fx-font-family:'Malgun Gothic';">
+                <MenuItem text="New" onAction="#newWindow">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="Save" onAction="#save">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="Save As  " onAction="#saveAs">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="Open" onAction="#open">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+
+            <Menu text="Edit" style="-fx-font-size:15px; -fx-font-family:'Malgun Gothic';">
+                <MenuItem text="Youtube-DL Console" onAction="#openConsole">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="Y" control="UP" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="Change default options" onAction="#openProperties">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="C" control="UP" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="Refresh" onAction="#refresh">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+
+            <Menu text="Settings" style="-fx-font-size:15px; -fx-font-family:'Malgun Gothic';">
+                <MenuItem text="Clear logs" onAction="#clearLogs">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="View logs" onAction="#viewLogs">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+                <MenuItem text="About the program " onAction="#aboutTheProgram">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+        </MenuBar>
+        <Label fx:id="openedTitle" text="New file" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"
+               AnchorPane.bottomAnchor="0">
+            <font>
+                <Font name="Malgun Gothic" size="15.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+
+
+    <HBox prefHeight="50" prefWidth="1200">
+        <VBox.margin>
+            <Insets left="10"/>
+        </VBox.margin>
+        <ImageView fitWidth="80" preserveRatio="true">
+            <HBox.margin>
+                <Insets top="15"/>
+            </HBox.margin>
+            <Image url="@../img/icon.png"/>
+        </ImageView>
+        <Label text="Youtube Downloader">
+            <HBox.margin>
+                <Insets bottom="20" left="10" top="20"/>
+            </HBox.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="30.0"/>
+            </font>
+        </Label>
+
+        <Label text=" - by Tracy -">
+            <HBox.margin>
+                <Insets left="10" top="40"/>
+            </HBox.margin>
+            <font>
+                <Font name="Arial Italic" size="14.0"/>
+            </font>
+        </Label>
+    </HBox>
+
+    <HBox>
+        <VBox.margin>
+            <Insets bottom="10" left="10"/>
+        </VBox.margin>
+        <Line endX="1260" strokeWidth="2" style="-fx-stroke:#9da0a3;"/>
+    </HBox>
+
+    <GridPane>
+        <VBox.margin>
+            <Insets left="10"/>
+        </VBox.margin>
+
+        <Label prefHeight="30" prefWidth="100" text="[URLs]" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets bottom="5" left="5"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Label>
+        <TextArea fx:id='urls' prefHeight="300" prefWidth="1260" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+                <Font name="Malgun Gothic" size="16.0"/>
+            </font>
+        </TextArea>
+        <columnConstraints>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+    </GridPane>
+
+    <HBox>
+        <VBox.margin>
+            <Insets bottom="10" left="10" top="20"/>
+        </VBox.margin>
+        <Line endX="1260" strokeWidth="2" style="-fx-stroke:#9da0a3;"/>
+    </HBox>
+
+
+    <GridPane>
+        <VBox.margin>
+            <Insets bottom="-10" top="10"/>
+        </VBox.margin>
+        <Label prefHeight="30" prefWidth="70" text="[Type]" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets bottom="15" left="13"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Label>
+
+        <fx:define>
+            <ToggleGroup fx:id="type_selector"/>
+        </fx:define>
+
+        <RadioButton text="audio" fx:id="audio" toggleGroup="$type_selector" GridPane.columnIndex="1"
+                     GridPane.rowIndex="0" selected="true">
+            <GridPane.margin>
+                <Insets bottom="10" right="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </RadioButton>
+
+        <RadioButton text="video" fx:id="video" toggleGroup="$type_selector" GridPane.columnIndex="2"
+                     GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets bottom="10" right="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </RadioButton>
+
+        <Button prefHeight="30" prefWidth="100" text="Options" GridPane.columnIndex="3" GridPane.rowIndex="0"
+                onAction="#optionWindow">
+            <GridPane.margin>
+                <Insets bottom="10" left="760"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Button>
+
+        <Button prefHeight="30" prefWidth="120" text="Download" GridPane.columnIndex="4" GridPane.rowIndex="0"
+                onAction="#download">
+            <GridPane.margin>
+                <Insets bottom="10" left="10"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Button>
+
+        <columnConstraints>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+    </GridPane>
+
+    <HBox>
+        <VBox.margin>
+            <Insets bottom="10" left="10" top="20"/>
+        </VBox.margin>
+        <Line endX="1260" strokeWidth="2" style="-fx-stroke:#9da0a3;"/>
+    </HBox>
+
+    <GridPane>
+        <Label prefHeight="30" prefWidth="156.0" text="[Download Status]" GridPane.columnIndex="0"
+               GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets bottom="12" left="10"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Label>
+
+        <!-- <Label fx:id="title" prefHeight="30" text="Nothing is on the thread now." prefWidth="950.0"
+               GridPane.columnIndex="1"
+               GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets bottom="9" left="23"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="14.0"/>
+            </font>
+        </Label> -->
+
+
+        <Button prefHeight="30" prefWidth="30" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#stop">
+            <GridPane.margin>
+                <Insets bottom="10" left="985"/>
+            </GridPane.margin>
+
+            <graphic>
+                <ImageView fitWidth="30" preserveRatio="true">
+                    <Image url="@../img/stop.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Button prefHeight="30" prefWidth="30" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#restart">
+            <GridPane.margin>
+                <Insets bottom="10" left="-45"/>
+            </GridPane.margin>
+
+            <graphic>
+                <ImageView fitWidth="30" preserveRatio="true">
+                    <Image url="@../img/restart.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Label prefHeight="30" prefWidth="156.0" text="Thread Progress >" GridPane.columnIndex="0"
+               GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="10" left="10"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Label>
+
+        <ProgressBar fx:id="threadProgressBar" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="1070"
+                     prefHeight="30">
+            <GridPane.margin>
+                <Insets left="20"/>
+            </GridPane.margin>
+        </ProgressBar>
+
+        <Label fx:id="threadMessage" prefHeight="30" prefWidth="1000.0" text="Thread Download Status: [READY]"
+               GridPane.columnIndex="1"
+               GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets bottom="2" left="23"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="12.0"/>
+            </font>
+        </Label>
+
+        <Label prefHeight="30" prefWidth="156.0" text="Entire progress > " GridPane.columnIndex="0"
+               GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets bottom="10" left="10"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="18.0"/>
+            </font>
+        </Label>
+
+        <ProgressBar fx:id="entireProgressBar" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="1070"
+                     prefHeight="30">
+            <GridPane.margin>
+                <Insets left="20"/>
+            </GridPane.margin>
+        </ProgressBar>
+
+        <Label fx:id="entireMessage" prefHeight="30" prefWidth="1000.0" text="Overall Download Status: [READY]"
+               GridPane.columnIndex="1"
+               GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets bottom="2" left="23"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic" size="12.0"/>
+            </font>
+        </Label>
+
+        <columnConstraints>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+    </GridPane>
+
+    <HBox prefWidth="1200" prefHeight="50">
+        <VBox.margin>
+            <Insets bottom="7" left="10" top="20"/>
+        </VBox.margin>
+        <Label fx:id="title" text="Nothing is on the thread now">
+            <font>
+                <Font name="Malgun Gothic" size="14.0"/>
+            </font>
+        </Label>
+
+    </HBox>
+</VBox>

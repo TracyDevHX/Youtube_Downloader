@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="Youtube_DLG.OptionController"
+      prefHeight="450.0" prefWidth="585.0">
+    <GridPane>
+        <Label text="Options" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets left="15" top="5"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="30"/>
+            </font>
+        </Label>
+
+        <Label text="Video Format: " GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="15" top="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="15"/>
+            </font>
+        </Label>
+
+        <ComboBox fx:id="videoFormat" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="420"
+                  promptText="Select Format" style="-fx-font-family: 'Malgun Gothic';">
+            <GridPane.margin>
+                <Insets left="10" top="20" right="-60"/>
+            </GridPane.margin>
+
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="mp4"/>
+                    <String fx:value="mkv"/>
+                    <String fx:value="webm"/>
+                    <String fx:value="ogg"/>
+                    <String fx:value="flv"/>
+                </FXCollections>
+            </items>
+
+        </ComboBox>
+
+        <Label text="Video Resolution: " GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="15" top="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="15"/>
+            </font>
+        </Label>
+
+        <ComboBox fx:id="videoResolution" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="420"
+                  promptText="Select Resolution" style="-fx-font-family: 'Malgun Gothic';">
+            <GridPane.margin>
+                <Insets left="10" top="20" right="-60"/>
+            </GridPane.margin>
+
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="144p"/>
+                    <String fx:value="240p"/>
+                    <String fx:value="360p"/>
+                    <String fx:value="480p"/>
+                    <String fx:value="720p"/>
+                    <String fx:value="1080p"/>
+                    <String fx:value="best"/>
+                </FXCollections>
+            </items>
+
+        </ComboBox>
+
+        <Label text="Saved Directory: " GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets left="15" top="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="15"/>
+            </font>
+        </Label>
+
+        <TextField fx:id="videoSaveDirectory" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="375"
+                   promptText="Enter Directory"
+                   style="-fx-font-family: 'Malgun Gothic';">
+            <GridPane.margin>
+                <Insets left="10" top="20"/>
+            </GridPane.margin>
+        </TextField>
+
+        <Button prefWidth="30" prefHeight="30" fx:id="videoDirectory" onAction="#videoDirectoryChooser"
+                GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets left="8" top="20"/>
+            </GridPane.margin>
+
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                    <Image url="@../img/folder.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+    </GridPane>
+
+    <Label text="Youtube_DL command line options" GridPane.rowIndex="3" GridPane.columnIndex="0" prefWidth="500">
+        <VBox.margin>
+            <Insets left="15" top="20"/>
+        </VBox.margin>
+        <font>
+            <Font name="Malgun Gothic Bold" size="15"/>
+        </font>
+    </Label>
+
+    <TextArea fx:id="videoCommandLine" prefHeight="130" prefWidth="100">
+        <VBox.margin>
+            <Insets left="15" top="10" right="10"/>
+        </VBox.margin>
+        <font>
+            <Font name="Malgun Gothic" size="14.0"/>
+        </font>
+    </TextArea>
+
+    <HBox>
+        <VBox.margin>
+            <Insets left="15" top="20"/>
+        </VBox.margin>
+
+        <RadioButton text="playlist" fx:id="videoPlaylist">
+            <font>
+                <Font name="Malgun Gothic" size="15.0"/>
+            </font>
+        </RadioButton>
+
+        <Button text="Confirm" onAction="#setOption" prefWidth="80" prefHeight="30">
+            <font>
+                <Font name="Malgun Gothic" size="15"/>
+            </font>
+            <HBox.margin>
+                <Insets left="314" right="10"/>
+            </HBox.margin>
+        </Button>
+
+        <Button text="Cancel" onAction="#cancelOption" prefWidth="80" prefHeight="30">
+            <font>
+                <Font name="Malgun Gothic" size="15"/>
+            </font>
+        </Button>
+    </HBox>
+
+</VBox>
+

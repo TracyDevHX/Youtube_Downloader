@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="Youtube_DLG.OptionController"
+      prefHeight="400.0" prefWidth="585.0">
+    <GridPane>
+        <Label text="Options" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets left="15" top="5"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="30"/>
+            </font>
+        </Label>
+
+        <Label text="Audio Format: " GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="15" top="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="15"/>
+            </font>
+        </Label>
+
+        <ComboBox fx:id="audioFormat" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="420"
+                  promptText="Select Format" style="-fx-font-family: 'Malgun Gothic';">
+            <GridPane.margin>
+                <Insets left="15" top="20" right="-60"/>
+            </GridPane.margin>
+
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="best"/>
+                    <String fx:value="mp3"/>
+                    <String fx:value="m4a"/>
+                    <String fx:value="wav"/>
+                    <String fx:value="aac"/>
+                    <String fx:value="flac"/>
+                    <String fx:value="opus"/>
+                    <String fx:value="vorbis"/>
+                </FXCollections>
+            </items>
+
+        </ComboBox>
+
+        <Label text="Saved Directory: " GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="15" top="20"/>
+            </GridPane.margin>
+            <font>
+                <Font name="Malgun Gothic Bold" size="15"/>
+            </font>
+        </Label>
+
+        <TextField fx:id="audioSaveDirectory" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="375"
+                   promptText="Enter Directory"
+                   style="-fx-font-family: 'Malgun Gothic';">
+            <GridPane.margin>
+                <Insets left="15" top="20"/>
+            </GridPane.margin>
+        </TextField>
+
+        <Button prefWidth="30" prefHeight="30" fx:id="audioDirectory" onAction="#audioDirectoryChooser"
+                GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="8" top="20"/>
+            </GridPane.margin>
+
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                    <Image url="@../img/folder.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+
+    </GridPane>
+
+    <Label text="Youtube_DL command line options" GridPane.rowIndex="3" GridPane.columnIndex="0" prefWidth="500">
+        <VBox.margin>
+            <Insets left="15" top="20"/>
+        </VBox.margin>
+        <font>
+            <Font name="Malgun Gothic Bold" size="15"/>
+        </font>
+    </Label>
+
+    <TextArea fx:id="audioCommandLine" prefHeight="130" prefWidth="100">
+        <VBox.margin>
+            <Insets left="15" top="10" right="10"/>
+        </VBox.margin>
+        <font>
+            <Font name="Malgun Gothic" size="14.0"/>
+        </font>
+    </TextArea>
+
+    <HBox>
+        <VBox.margin>
+            <Insets left="15" top="20"/>
+        </VBox.margin>
+
+        <RadioButton text="playlist" fx:id="audioPlaylist">
+            <font>
+                <Font name="Malgun Gothic" size="15.0"/>
+            </font>
+        </RadioButton>
+
+        <Button text="Confirm" onAction="#setOption" prefWidth="80" prefHeight="30">
+            <font>
+                <Font name="Malgun Gothic" size="15"/>
+            </font>
+            <HBox.margin>
+                <Insets left="315" right="10"/>
+            </HBox.margin>
+        </Button>
+
+        <Button text="Cancel" onAction="#cancelOption" prefWidth="80" prefHeight="30">
+            <font>
+                <Font name="Malgun Gothic" size="15"/>
+            </font>
+        </Button>
+    </HBox>
+
+</VBox>
+
