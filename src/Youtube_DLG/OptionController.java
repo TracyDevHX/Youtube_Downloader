@@ -35,9 +35,6 @@ public class OptionController implements Initializable {
     @FXML
     public RadioButton videoPlaylist;
 
-    public String[] audioArgs = new String[4];
-    public String[] videoArgs = new String[5];
-
 
     public void audioDirectoryChooser(ActionEvent actionEvent) {
         Stage stage = (Stage) audioDirectory.getScene().getWindow();
